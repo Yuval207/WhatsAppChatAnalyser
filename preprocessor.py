@@ -11,9 +11,9 @@ def preprocess(data):
 
 
     try:
-        df['message_date'] = pd.to_datetime(df['message_date'], format='%d/%m/%y, %H:%M - ')
+        df['message_date'] = pd.to_datetime(df['message_date'], format='%d/%m/%Y, %H:%M - ')
     except ValueError:
-        df['message_date'] = pd.NaT
+        df['message_date'] = pd.to_datetime(df['message_date'], format='%d/%m/%y, %H:%M - ')
 
     df.dropna(subset=['message_date'], inplace=True)
 
